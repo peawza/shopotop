@@ -259,17 +259,17 @@ echo '</pre>';
                                 <div class="form-group col-md-4">
                                     <label for="inputCity">แขวง / ตำบล </label>
                                     <input type="text" class="form-control" id="district" name="district"
-                                        placeholder="แขวง / ตำบล" required disabled>
+                                        placeholder="แขวง / ตำบล" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputCity">เขต / อำเภอ</label>
                                     <input type="text" class="form-control" id="amphoe" name="amphoe"
-                                        placeholder="เขต / อำเภอ" required disabled>
+                                        placeholder="เขต / อำเภอ" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputZip">จังหวัด</label>
                                     <input type="text" class="form-control" id="province" name="province"
-                                        placeholder="จังหวัด" required disabled>
+                                        placeholder="จังหวัด" required>
                                 </div>
                             </div>
 

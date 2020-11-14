@@ -21,27 +21,25 @@ include("php/connectns.php");
 
 
     include('include/navber.php'); // เรียกใช่ไฟล์ include
-    //print_r($_SESSION['Email']);
-    //echo $_SESSION['id'];
-    //echo $_SESSION['name'];
+
     ?>
 
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div id="imglist" class="carousel-item active " data-interval="1000">
 
-                <img src="img\index\what2.png" class="d-block  img-fluid imglist" alt="...">
+                <img src="img\index\1.png" class="d-block  img-fluid imglist" alt="...">
 
             </div>
             <div id="imglist" class="carousel-item " data-interval="1000">
 
-                <img src="img\index\indexhome.jpg" class="d-block  img-fluid  imglist" alt="...">
+                <img src="img\index\2.png" class="d-block  img-fluid  imglist" alt="...">
 
 
             </div>
             <div id="imglist" class="carousel-item " data-interval="1000">
 
-                <img src="img\index\indexhome2.jpg" class="d-block    img-fluid imglist" alt="...">
+                <img src="img\index\3.png" class="d-block    img-fluid imglist" alt="...">
 
 
             </div>
@@ -58,243 +56,256 @@ include("php/connectns.php");
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!--
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid text-center">
 
-
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
             <h1 class="display-4">ยินดีต้อนรับ</h1>
             <p class="lead"></p>
         </div>
     </div>
-
-    <h1 class="text-justify px-5">สินค้าขายดี</h1>
-    <br>
-    <br>
-
-
-    <div class="container-fluid">
-        <div class="row blog">
-            <div class="col-md-12">
-                <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-
-                    <ol class="carousel-indicators">
-                        <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#blogCarousel" data-slide-to="1"></li>
-                    </ol>
-
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-
-                            <div class="row">
-                                <?php
+    -->
+    <div class="card container-fluid">
+        <h1 class="text-justify px-5">สินค้าขายดี</h1>
+        <br>
+        <br>
 
 
-                                $i = 0;
-                                /*
+        <div class="container-fluid">
+            <div class="row blog">
+                <div class="col-md-12">
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+                                <div class="row">
+                                    <?php
+
+
+                                    $i = 0;
+                                    /*
                         
                         $selectTypeproduct = "SELECT * FROM `product`,`producttype` WHERE `product`.`Type_ID` = `producttype`.`Type_ID` AND `product`.`Type_ID` = '" . $_GET['typeproduct'] . "' ";
                         */
-                                $selectproduct = "SELECT `ordersalesdetail`.`product_ID`, SUM(`ordersalesDetail_unit`) `orderTotal`,`product`.`Product_Photo` FROM `ordersalesdetail`,`product` WHERE `product`.`Product_ID`= `ordersalesdetail`.`product_ID` GROUP BY product_ID ORDER BY `orderTotal` DESC LIMIT 12";
-                                $resultproduct = mysqli_query($connect, $selectproduct);
-                                while ($row = mysqli_fetch_array($resultproduct)) {
-                                    //$row["Type_ID"];
-                                    //  <a href="php/delete.php?Warranty_ID=<?php
-                                    // echo $row["Warranty_ID"];                           
-                                    //<i class=" fas fa-trash-alt"></i></a>
+                                    $selectproduct = "SELECT `ordersalesdetail`.`product_ID`, SUM(`ordersalesDetail_unit`) `orderTotal`,`product`.`Product_Photo` FROM `ordersalesdetail`,`product` WHERE `product`.`Product_ID`= `ordersalesdetail`.`product_ID` GROUP BY product_ID ORDER BY `orderTotal` DESC LIMIT 12";
+                                    $resultproduct = mysqli_query($connect, $selectproduct);
+                                    while ($row = mysqli_fetch_array($resultproduct)) {
+                                        //$row["Type_ID"];
+                                        //  <a href="php/delete.php?Warranty_ID=<?php
+                                        // echo $row["Warranty_ID"];                           
+                                        //<i class=" fas fa-trash-alt"></i></a>
 
-                                    if ($i <= 5) {
-                                ?>
+                                        if ($i <= 5) {
+                                    ?>
 
 
-                                <div class="col-md-2">
-                                    <a href="product_detail.php?id_product=<?php echo $row['product_ID'] ?>">
-                                        <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
-                                            class="cardproductindex img-fluid">
-                                    </a>
-                                </div>
+                                    <div class="col-md-2">
+                                        <a href="product_detail.php?id_product=<?php echo $row['product_ID'] ?>">
+                                            <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
+                                                class="cardproductindex img-fluid">
+                                        </a>
+                                    </div>
 
-                                <?php
+                                    <?php
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
-                                }
-                                ?>
+                                    ?>
 
+                                </div>
+                                <!--.row-->
                             </div>
-                            <!--.row-->
-                        </div>
-                        <!--.item-->
+                            <!--.item-->
 
-                        <div class="carousel-item">
-                            <div class="row">
-                                <?php
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <?php
 
 
-                                $x = 0;
-                                /*
+                                    $x = 0;
+                                    /*
                         
                         $selectTypeproduct = "SELECT * FROM `product`,`producttype` WHERE `product`.`Type_ID` = `producttype`.`Type_ID` AND `product`.`Type_ID` = '" . $_GET['typeproduct'] . "' ";
                         */
-                                $selectproduct = "SELECT `ordersalesdetail`.`product_ID`, SUM(`ordersalesDetail_unit`) `orderTotal`,`product`.`Product_Photo` 
+                                    $selectproduct = "SELECT `ordersalesdetail`.`product_ID`, SUM(`ordersalesDetail_unit`) `orderTotal`,`product`.`Product_Photo` 
                                 FROM `ordersalesdetail`,`product` 
                                 WHERE `product`.`Product_ID`= `ordersalesdetail`.`product_ID` 
                                 GROUP BY product_ID 
                                 ORDER BY `orderTotal` DESC LIMIT 12";
-                                $resultproduct = mysqli_query($connect, $selectproduct);
-                                while ($row = mysqli_fetch_array($resultproduct)) {
-                                    //$row["Type_ID"];
-                                    //  <a href="php/delete.php?Warranty_ID=<?php
-                                    // echo $row["Warranty_ID"];                           
-                                    //<i class=" fas fa-trash-alt"></i></a>
-                                    if ($x >= 6 && $x <= 11) {
-                                ?>
+                                    $resultproduct = mysqli_query($connect, $selectproduct);
+                                    while ($row = mysqli_fetch_array($resultproduct)) {
+                                        //$row["Type_ID"];
+                                        //  <a href="php/delete.php?Warranty_ID=<?php
+                                        // echo $row["Warranty_ID"];                           
+                                        //<i class=" fas fa-trash-alt"></i></a>
+                                        if ($x >= 6 && $x <= 11) {
+                                    ?>
 
 
-                                <div class="col-md-2">
-                                    <a href="product_detail.php?id_product=<?php echo $row['product_ID'] ?>">
-                                        <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
-                                            class="cardproductindex img-fluid">
-                                    </a>
-                                </div>
+                                    <div class="col-md-2">
+                                        <a href="product_detail.php?id_product=<?php echo $row['product_ID'] ?>">
+                                            <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
+                                                class="cardproductindex img-fluid">
+                                        </a>
+                                    </div>
 
-                                <?php
+                                    <?php
+                                        }
+                                        $x++;
                                     }
-                                    $x++;
-                                }
-                                ?>
+                                    ?>
 
-                            </div>
-                        </div>
-                        <!--.row-->
-                    </div>
-                    <!--.item-->
-
-                </div>
-                <!--.carousel-inner-->
-            </div>
-            <!--.Carousel-->
-
-        </div>
-    </div>
-
-
-    <br>
-    <br>
-    <br>
-
-
-
-
-    <h1 class="text-justify px-5">สินค้าใหม่</h1>
-    <br>
-    <br>
-
-
-    <div class="container-fluid">
-        <div class="row blog">
-            <div class="col-md-12">
-                <div id="blogCarousel2" class="carousel slide" data-ride="carousel">
-
-                    <ol class="carousel-indicators">
-                        <li data-target="#blogCarousel2" data-slide-to="0" class="active"></li>
-                        <li data-target="#blogCarousel2" data-slide-to="1"></li>
-                    </ol>
-
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-
-                            <div class="row">
-                                <?php
-
-
-                                $i = 0;
-                                /*
-                        
-                        $selectTypeproduct = "SELECT * FROM `product`,`producttype` WHERE `product`.`Type_ID` = `producttype`.`Type_ID` AND `product`.`Type_ID` = '" . $_GET['typeproduct'] . "' ";
-                        */
-                                $selectproduct = "SELECT * FROM `product` ORDER BY `product`.`date_save` DESC";
-                                $resultproduct = mysqli_query($connect, $selectproduct);
-                                while ($row = mysqli_fetch_array($resultproduct)) {
-                                    //$row["Type_ID"];
-                                    //  <a href="php/delete.php?Warranty_ID=<?php
-                                    // echo $row["Warranty_ID"];                           
-                                    //<i class=" fas fa-trash-alt"></i></a>
-
-                                    if ($i <= 5) {
-
-                                ?>
-
-
-                                <div class="col-md-2">
-                                    <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>">
-                                        <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
-                                            class="cardproductindex img-fluid">
-                                    </a>
                                 </div>
-
-                                <?php
-                                    }
-                                    $i++;
-                                }
-                                ?>
-
                             </div>
                             <!--.row-->
                         </div>
                         <!--.item-->
 
-                        <div class="carousel-item">
-                            <div class="row">
-                                <?php
+                    </div>
+                    <!--.carousel-inner-->
+                </div>
+                <!--.Carousel-->
+
+            </div>
+        </div>
+
+    </div>
 
 
-                                $x = 0;
-                                /*
+
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="card container-fluid">
+        <h1 class="text-justify px-5">สินค้าใหม่</h1>
+        <br>
+        <br>
+
+
+        <div class="container-fluid">
+            <div class="row blog">
+                <div class="col-md-12">
+                    <div id="blogCarousel2" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel2" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel2" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+                                <div class="row">
+                                    <?php
+
+
+                                    $i = 0;
+                                    /*
                         
                         $selectTypeproduct = "SELECT * FROM `product`,`producttype` WHERE `product`.`Type_ID` = `producttype`.`Type_ID` AND `product`.`Type_ID` = '" . $_GET['typeproduct'] . "' ";
                         */
-                                $selectproduct = "SELECT * FROM `product` ORDER BY `product`.`date_save` DESC";
-                                $resultproduct = mysqli_query($connect, $selectproduct);
-                                while ($row = mysqli_fetch_array($resultproduct)) {
-                                    //$row["Type_ID"];
-                                    //  <a href="php/delete.php?Warranty_ID=<?php
-                                    // echo $row["Warranty_ID"];                           
-                                    //<i class=" fas fa-trash-alt"></i></a>
+                                    $selectproduct = "SELECT * FROM `product` ORDER BY `product`.`date_save` DESC";
+                                    $resultproduct = mysqli_query($connect, $selectproduct);
+                                    while ($row = mysqli_fetch_array($resultproduct)) {
+                                        //$row["Type_ID"];
+                                        //  <a href="php/delete.php?Warranty_ID=<?php
+                                        // echo $row["Warranty_ID"];                           
+                                        //<i class=" fas fa-trash-alt"></i></a>
 
-                                    if ($x >= 6 && $x <= 11) {
+                                        if ($i <= 5) {
 
-
-
-                                ?>
+                                    ?>
 
 
-                                <div class="col-md-2">
-                                    <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>">
-                                        <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
-                                            class="cardproductindex img-fluid">
-                                    </a>
-                                </div>
+                                    <div class="col-md-2">
+                                        <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>">
+                                            <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
+                                                class="cardproductindex img-fluid">
+                                        </a>
+                                    </div>
 
-                                <?php
+                                    <?php
+                                        }
+                                        $i++;
                                     }
-                                    $x++;
-                                }
-                                ?>
+                                    ?>
 
+                                </div>
+                                <!--.row-->
                             </div>
+                            <!--.item-->
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <?php
+
+
+                                    $x = 0;
+                                    /*
+                        
+                        $selectTypeproduct = "SELECT * FROM `product`,`producttype` WHERE `product`.`Type_ID` = `producttype`.`Type_ID` AND `product`.`Type_ID` = '" . $_GET['typeproduct'] . "' ";
+                        */
+                                    $selectproduct = "SELECT * FROM `product` ORDER BY `product`.`date_save` DESC";
+                                    $resultproduct = mysqli_query($connect, $selectproduct);
+                                    while ($row = mysqli_fetch_array($resultproduct)) {
+                                        //$row["Type_ID"];
+                                        //  <a href="php/delete.php?Warranty_ID=<?php
+                                        // echo $row["Warranty_ID"];                           
+                                        //<i class=" fas fa-trash-alt"></i></a>
+
+                                        if ($x >= 6 && $x <= 11) {
+
+
+
+                                    ?>
+
+
+                                    <div class="col-md-2">
+                                        <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>">
+                                            <img src="img\product\<?php echo $row['Product_Photo'] ?>" alt="Image"
+                                                class="cardproductindex img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <?php
+                                        }
+                                        $x++;
+                                    }
+                                    ?>
+
+                                </div>
+                            </div>
+                            <!--.row-->
                         </div>
-                        <!--.row-->
+                        <!--.item-->
+
                     </div>
-                    <!--.item-->
-
+                    <!--.carousel-inner-->
                 </div>
-                <!--.carousel-inner-->
-            </div>
-            <!--.Carousel-->
+                <!--.Carousel-->
 
+            </div>
         </div>
+
+
+
     </div>
+
+
+
+
+
 
 
 
