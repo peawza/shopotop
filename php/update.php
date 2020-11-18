@@ -66,6 +66,7 @@ if (isset($_POST['submitordersalesTransfermoney'])) {
         header('location:../oderproduct.php');
     } else {
         echo 'ไม่มีการอัพเดทข้อมูล';
+        header('location:../oderproductuser.php');
     }
     /*
     Array
@@ -131,6 +132,7 @@ if (isset($_POST['submitordersalesTransfermoneyuser'])) {
         header('location:../oderproductuser.php');
     } else {
         echo 'ไม่มีการอัพเดทข้อมูล';
+        header('location:../oderproductuser.php');
     }
     /*
     Array
@@ -194,12 +196,14 @@ if (isset($_POST['submitproduct'])) {
     $result = $conn->query($sql) or die($conn->error);
     if ($result) {
         //echo 'แก้ไข้ข้อมูลสำเร็จ';
-        echo "<script> alert('แก้ไขข้อมูลสำเร็จ'); </script>";
+
         header('Refresh:0; url=../product.php');
+        echo "<script> alert('แก้ไขข้อมูลสำเร็จ'); </script>";
     } else {
         //echo 'ไม่สำเร็จ';
-        echo "<script> alert('แก้ไขข้อมูลไม่สำเร็จ'); </script>";
+
         header('Refresh:0; url=../product.php');
+        echo "<script> alert('แก้ไขข้อมูลไม่สำเร็จ'); </script>";
     }
 }
 

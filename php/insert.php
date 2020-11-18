@@ -1,43 +1,10 @@
 <?php
 require_once('connect.php');
 
-echo '<pre>';
-
-print_r($_POST);
-
-
-//print_r($_FILES['file']); // ชื่อ NAME ใน HTML
-/*
- [item_id] => 46
-                    [item_name] => sadas
-                    [item_price] => 500.00
-                    [item_quantity] => 1
-                    [item_photo] => 8990127046103.jpg
-                    [item_Balance] => 123
-
-*/
-echo '</pre>';
 
 
 if (isset($_POST['submitcart'])) {
-    //echo '<pre>';
-    //print_r($_SESSION);
-    //print_r($_POST);
-    //echo '</pre>';
 
-    /*
-    Array
-(
-    [addressuser] => asdasdas
-    [Delivery] => 1
-    [Totalprice] => 42
-    [phone] => 0970562607
-    [nameusersend] => ศุภชัย  แจ้งอรุณ
-    [tel] => 12345
-    [submitcart] => 
-)
-    
-    */
 
     $sqlid = "SELECT Ordersales_ID FROM `ordersales` ORDER BY `Ordersales_ID` DESC LIMIT 1";
     $resultid = $conn->query($sqlid);
@@ -46,12 +13,7 @@ if (isset($_POST['submitcart'])) {
     echo $adressusersend;
 
     if (mysqli_num_rows($resultid) == 1) {
-        //$code = sprintf('P-%04d', $row['Ordersales_ID']);
-        //echo $code; // P-0001
-        //echo '<br>';
-        //echo $row['Ordersales_ID'];
-        //echo '<br>';
-        //echo $row['Ordersales_ID'] + 1;
+
         $OrderID = $row['Ordersales_ID'] + 1;
         $sqlinsertorder = ("INSERT INTO `ordersales`(`Ordersales_ID`, `Delivery_ID`, `User_ID`, `Ordersales_address`,
     `Ordersales_Totalprice`, `Ordersales_Day`, `Ordersales_Status`) VALUES
@@ -119,9 +81,9 @@ if (isset($_POST['submitcart'])) {
                 ('" . $OrderID . "','" . $values["item_id"] . "','" . $values["item_quantity"] . "','" . $rowselectWarranty['Warranty_Day'] . "','" . $sumprice . "')");
             $resultinsertorderdetail = $conn->query($sqlinsertorderdetail);
             if (isset($resultinsertorderdetail)) {
-                echo '1234';
+                //echo '1234';
             } else {
-                echo '0000';
+                //echo '0000';
             }
         }
 
@@ -133,10 +95,12 @@ if (isset($_POST['submitcart'])) {
         }
     } else {
         $OrderID = 1;
+        $adressusersend = $_POST['nameusersend'] . '<br> ' . $_POST['address'] . ' <br>เบอร์โทรติดต่อ  ' . $_POST['tel'];
+
         //echo $OrderID;
         $sqlinsertorder = ("INSERT INTO `ordersales`(`Ordersales_ID`, `Delivery_ID`, `User_ID`, `Ordersales_address`,
         `Ordersales_Totalprice`, `Ordersales_Day`, `Ordersales_Status`) VALUES
-        ('" . $OrderID . "','" . $_POST['Delivery'] . "','" . $_SESSION["ID"] . "','" . $_POST['addressuser'] . "','" .
+        ('" . $OrderID . "','" . $_POST['Delivery'] . "','" . $_SESSION["ID"] . "','" . $adressusersend . "','" .
             $_POST['Totalprice'] . "','" . date("Y-m-d") . "','รอการชำระเงิน')");
         $resultinsertorder = $conn->query($sqlinsertorder);
 

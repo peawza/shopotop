@@ -85,166 +85,157 @@ if (isset($_GET["id_product"])) {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php
         //echo "111111111111111111111111";
         include('include/importcss.php');
         include('include/navber.php'); // เรียกใช่ไฟล์ include css    
         ?>
-    <title>HOME</title>
-</head>
+        <link rel="icon" href="img/index/icon.png">
+        <title>Otop Tailand</title>
+    </head>
 
 
-</head>
-
-<body>
-
-    <style>
-    .cardproduct {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 400px;
-        margin: auto;
-        text-align: center;
-        font-family: arial;
-    }
-
-    .priceproduct {
-        color: grey;
-        font-size: 22px;
-    }
-
-
-
-    .card button:hover {
-        opacity: 0.7;
-    }
-
-    .imgproductdetali {
-
-        width: 100%;
-        height: 680px;
-    }
-
-    @media (max-width: 576px) {
-        .imgproductdetali {
-
-            width: 100%;
-            height: 480px;
-        }
-
-        h1 {
-            font-size: 5vw
-        }
-    }
-    </style>
-
-
-
-
-
-
-
+    </head>
 
     <body>
 
-        <?php
+        <style>
+            .cardproduct {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 400px;
+                margin: auto;
+                text-align: center;
+                font-family: arial;
+            }
+
+            .priceproduct {
+                color: grey;
+                font-size: 22px;
+            }
+
+
+
+            .card button:hover {
+                opacity: 0.7;
+            }
+
+            .imgproductdetali {
+
+                width: 100%;
+                height: 680px;
+            }
+
+            @media (max-width: 576px) {
+                .imgproductdetali {
+
+                    width: 100%;
+                    height: 480px;
+                }
+
+                h1 {
+                    font-size: 5vw
+                }
+            }
+        </style>
+
+
+
+
+
+
+
+
+        <body>
+
+            <?php
 
             $sql = "SELECT * FROM `product` WHERE `Product_ID`= '" . $_GET["id_product"] . "'"; // alt  + 96
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             ?>
-        <div class="container-fluid py-4">
-            <h2 style="text-align:center"></h2>
+            <div class="container-fluid py-4">
+                <h2 style="text-align:center"></h2>
 
-            <form
-                action="product_detail.php?action=add&id=<?php echo $row["Product_ID"]; ?>&&typeproduct=<?php echo $row["Type_ID"] ?>"
-                method="post">
-                <div class="card py-3 ">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <img src="img\product\<?php echo $row['Product_Photo']; ?>" alt="Denim Jeans"
-                                class="imgproductdetali">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="container">
-                                <h1><?php echo $row['Product_Name']; ?></h1>
-                                <h6> รายละเอียดสินค้า</h6>
-                                <br>
-                                <p class="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['Product_Details']; ?>
-                                </p>
-                                <p class="priceproduct"><?php echo $row['Product_Price']; ?></p>
+                <form action="product_detail.php?action=add&id=<?php echo $row["Product_ID"]; ?>&&typeproduct=<?php echo $row["Type_ID"] ?>" method="post">
+                    <div class="card py-3 ">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="img\product\<?php echo $row['Product_Photo']; ?>" alt="Denim Jeans" class="imgproductdetali">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="container">
+                                    <h1><?php echo $row['Product_Name']; ?></h1>
+                                    <h6> รายละเอียดสินค้า</h6>
+                                    <br>
+                                    <p class="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['Product_Details']; ?>
+                                    </p>
+                                    <p class="priceproduct"><?php echo $row['Product_Price']; ?></p>
 
-                                <div class="row">
-                                    <div class="container-fluid col-9">
-                                        <div class="row container">
-                                            <h5 class="py-2">จำนวนสินค้าคงเหลือ</h5>
+                                    <div class="row">
+                                        <div class="container-fluid col-9">
+                                            <div class="row container">
+                                                <h5 class="py-2">จำนวนสินค้าคงเหลือ &nbsp;&nbsp;</h5>
 
-                                            <h5 class="py-2"><?php echo $row['Product_Balance']; ?> &nbsp;
-                                                &nbsp; เครื่อง</h5>
+                                                <h5 class="py-2"><?php echo $row['Product_Balance']; ?> &nbsp;
+                                                    &nbsp; ชิ้น</h5>
 
+
+                                            </div>
 
                                         </div>
-
-                                    </div>
-                                    <div class="col-3">
-                                        <div class=" py-2 float-right">
-                                            <input type="number" class="form-control  float-right" id="quantity"
-                                                name="quantity" value="1" min="1"
-                                                max="<?php echo $row["Product_Balance"]; ?>">
+                                        <div class="col-3">
+                                            <div class=" py-2 float-right">
+                                                <input type="number" class="form-control  float-right" id="quantity" name="quantity" value="1" min="1" max="<?php echo $row["Product_Balance"]; ?>">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <br>
-                                <br>
+                                    <br>
+                                    <br>
+                                    <br>
 
-                                <input type="hidden" name="hidden_name" value="<?php echo $row["Product_Name"]; ?>" />
+                                    <input type="hidden" name="hidden_name" value="<?php echo $row["Product_Name"]; ?>" />
 
-                                <input type="hidden" name="hidden_price" value="<?php echo $row["Product_Price"]; ?>" />
+                                    <input type="hidden" name="hidden_price" value="<?php echo $row["Product_Price"]; ?>" />
 
-                                <input type="hidden" name="hidden_photo" value="<?php echo $row['Product_Photo']; ?>" />
+                                    <input type="hidden" name="hidden_photo" value="<?php echo $row['Product_Photo']; ?>" />
 
-                                <input type="hidden" name="hidden_Balance"
-                                    value="<?php echo $row['Product_Balance']; ?>" />
+                                    <input type="hidden" name="hidden_Balance" value="<?php echo $row['Product_Balance']; ?>" />
 
-                                <?php if (isset($_SESSION['ID'])) {
+                                    <?php if (isset($_SESSION['ID'])) {
                                     ?>
 
-                                <button type="submit" name="add_to_cart" value="Add to Cart"
-                                    class="btn btn-success   btn-lg col-5 float-right textproduct text-center"><i
-                                        class="fa fa-shopping-cart"></i>
-                                    สั่งซื้อสินค้า </button>
+                                        <button type="submit" name="add_to_cart" value="Add to Cart" class="btn btn-success   btn-lg col-5 float-right textproduct text-center"><i class="fa fa-shopping-cart"></i>
+                                            สั่งซื้อสินค้า </button>
 
 
-                                <?php
+                                    <?php
                                     } else { ?>
 
-                                <a href="login.php"
-                                    class="btn btn-success   btn-lg col-5 float-right textproduct text-center">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    สั่งซื้อสินค้า
-                                </a>
+                                        <a href="login.php" class="btn btn-success   btn-lg col-5 float-right textproduct text-center">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            สั่งซื้อสินค้า
+                                        </a>
 
-                                <?php } ?>
+                                    <?php } ?>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
-                </div>
 
-            </form>
-
+                </form>
 
 
 
 
-        </div>
 
+            </div>
 
 
 
@@ -270,9 +261,10 @@ if (isset($_GET["id_product"])) {
 
 
 
-    </body>
 
-    <?php
+        </body>
+
+        <?php
         include('include/importjavascript.php'); // เรียกใช่ไฟล์ include javascript
         ?>
 
@@ -280,9 +272,9 @@ if (isset($_GET["id_product"])) {
 
 
 
-    </script>
+        </script>
 
-</html>
+    </html>
 
 
 

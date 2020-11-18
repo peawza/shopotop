@@ -12,7 +12,8 @@
     ?>
 
 
-    <title>HOME</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
 </head>
 
 <?php
@@ -56,35 +57,33 @@ include('include/navber.php');
 
                                 <?php
                                 while ($row = mysqli_fetch_array($query)) { ?>
-                                <tr>
-                                    <div class="">
-                                        <td class="text-sm-right px-5"><?php echo $row["Type_ID"]; ?></td>
-                                    </div>
-
-                                    <td class="text-sm-left px-5"><?php echo $row["Type_Name"]; ?></td>
-
-                                    <td>
-                                        <div class="container">
-                                            <input type="button" name="edit" value="แก้ไขประเภทสินค้า"
-                                                id="<?php echo $row["Type_ID"]; ?>"
-                                                class="btn btn-info  btn-sm  edit_data" />
-
+                                    <tr>
+                                        <div class="">
+                                            <td class="text-sm-right px-5"><?php echo $row["Type_ID"]; ?></td>
                                         </div>
 
+                                        <td class="text-sm-left px-5"><?php echo $row["Type_Name"]; ?></td>
 
-                                    </td>
-                                    <td>
-                                        <div class="text-center">
-                                            <a href="php/deletetypeproduct.php?Type_ID=<?php
+                                        <td>
+                                            <div class="container">
+                                                <input type="button" name="edit" value="แก้ไขประเภทสินค้า" id="<?php echo $row["Type_ID"]; ?>" class="btn btn-info  btn-sm  edit_data" />
+
+                                            </div>
+
+
+                                        </td>
+                                        <td>
+                                            <div class="text-center">
+                                                <a href="php/deletetypeproduct.php?Type_ID=<?php
                                                                                             echo $row["Type_ID"];
                                                                                             ?>" style="color:#000000" ">
                                             <i class=" fas fa-trash-alt"></i></a>
-                                        </div>
+                                            </div>
 
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                    </tr>
                                 <?php
                                 }
                                 ?>
@@ -111,12 +110,10 @@ include('include/navber.php');
 
                     <div class="form-row mx-sm-3 mb-2">
                         <label for="exampleFormControlInput1">เพิ่มชื่อประเภทสินค้า</label>
-                        <input type="text" class="form-control mb-2 my-2" id="typeproduct" name="typeproduct"
-                            placeholder="ประเภทสินค้า" maxlength="70" required>
+                        <input type="text" class="form-control mb-2 my-2" id="typeproduct" name="typeproduct" placeholder="ประเภทสินค้า" maxlength="70" required>
 
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg  float-right  mb-2  mx-3 my-1 px-5 "
-                        id="addtype" name="addtype">บันทึกประเภทสินค้าใหม่</button>
+                    <button type="submit" class="btn btn-success btn-lg  float-right  mb-2  mx-3 my-1 px-5 " id="addtype" name="addtype">บันทึกประเภทสินค้าใหม่</button>
 
                 </form>
 

@@ -21,7 +21,7 @@ function shopproduct($resultTypeproduct)
                     <div class="container">
                         <div class="content-item cardphotoproduct">
                             <div class="photozoom  mx-auto">
-                                <a href=" product_detail.php?id_product=<?php echo $row['Product_ID'] ?>"
+                                <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>"
                                     class="warpper-card-img">
                                     <img class="card-img-top photoproductzoom img-fluid" src="img\product\<?php echo $row['Product_Photo']
                                                                                                                     ?>"
@@ -69,7 +69,7 @@ function shopproduct($resultTypeproduct)
                         <input type="hidden" name="hidden_Balance" value="<?php echo $row['Product_Balance']; ?>" />
 
                         <div class="row py-4">
-                            <a href="product_detail.php?id_product="
+                            <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>"
                                 class="btn btn-secondary    btn-sm col-lg-4 col-sm-4 col-4  float-right btn-item">
                                 <i class="fa fa-eye"></i>
                                 ดูรายละเอียด
@@ -195,7 +195,7 @@ function shopproductgettype($resultTypeproduct, $typeproduct)
                         <input type="hidden" name="hidden_Balance" value="<?php echo $row['Product_Balance']; ?>" />
 
                         <div class="row py-4">
-                            <a href="product_detail.php?id_product="
+                            <a href="product_detail.php?id_product=<?php echo $row['Product_ID'] ?>"
                                 class="btn btn-secondary    btn-sm col-lg-4 col-sm-4 col-4  float-right btn-item">
                                 <i class="fa fa-eye"></i>
                                 ดูรายละเอียด
@@ -323,11 +323,13 @@ if (isset($_GET["action"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
     <?php
     //echo "111111111111111111111111";
     include('include/importcss.php'); // เรียกใช่ไฟล์ include css    
     ?>
-    <title>HOME</title>
+
 </head>
 
 

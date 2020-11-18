@@ -8,7 +8,8 @@
     <?php
     include('include/importcss.php'); // เรียกใช่ไฟล์ include css
     ?>
-    <title>HOME</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
 </head>
 
 <?php
@@ -57,35 +58,35 @@ include('include/navber.php');
 
                                     <?php
                                     while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) { ?>
-                                    <tr>
-                                        <td><?php echo $result["User_Username"]; ?></td>
-                                        <td><?php echo $result["User_Firstname"]; ?></td>
-                                        <td><?php echo $result["User_Lastname"]; ?></td>
-                                        <td><?php echo $result["User_Telephonenumber"]; ?></td>
-                                        <td><?php echo $result["User_Type"]; ?></td>
+                                        <tr>
+                                            <td><?php echo $result["User_Username"]; ?></td>
+                                            <td><?php echo $result["User_Firstname"]; ?></td>
+                                            <td><?php echo $result["User_Lastname"]; ?></td>
+                                            <td><?php echo $result["User_Telephonenumber"]; ?></td>
+                                            <td><?php echo $result["User_Type"]; ?></td>
 
-                                        <td> &nbsp;&nbsp;
+                                            <td> &nbsp;&nbsp;
 
-                                            <a id=" edituser" type="submit" name="edituser" href="edituser.php?UserID=<?php
+                                                <a id=" edituser" type="submit" name="edituser" href="edituser.php?UserID=<?php
                                                                                                                             echo $result["User_ID"];
                                                                                                                             ?>
                                                                                             " style="color:#000000">
-                                                <i class="fas fa-edit"></i></a>&nbsp;&nbsp; &nbsp;&nbsp;
-                                            <a href="php/deletuser.php?UserID=<?php
+                                                    <i class="fas fa-edit"></i></a>&nbsp;&nbsp; &nbsp;&nbsp;
+                                                <a href="php/deletuser.php?UserID=<?php
                                                                                     echo $result["User_ID"];
                                                                                     ?>" style="color:#000000">
-                                                <i class="fas fa-trash-alt"></i></a> </td>
+                                                    <i class="fas fa-trash-alt"></i></a> </td>
 
                             </form>
                             </tr>
-                            <?php
+                        <?php
                                     }
                         ?>
 
 
 
-                            </tbody>
-                            </form>
+                        </tbody>
+                        </form>
                         </div>
 
                     </table>

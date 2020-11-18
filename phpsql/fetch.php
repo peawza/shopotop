@@ -15,7 +15,7 @@ if (isset($_POST["product_ID"])) {
      $row = mysqli_fetch_array($result);
      echo json_encode($row);
      //echo json_encode($_POST["product_ID"]);
-     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>';
+     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>';
      //echo $x;
 }
 
@@ -28,7 +28,7 @@ if (isset($_POST["Warranty"])) {
      $row = mysqli_fetch_array($result);
      echo json_encode($row);
      //echo json_encode($_POST["product_ID"]);
-     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>';
+     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>';
      //echo $x;
 }
 
@@ -42,7 +42,7 @@ if (isset($_POST["Delivery"])) {
      $row = mysqli_fetch_array($result);
      echo json_encode($row);
      //echo json_encode($_POST["product_ID"]);
-     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>';
+     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>';
      //echo $x;
 }
 
@@ -54,6 +54,6 @@ if (isset($_POST["ordersalesid"])) {
      $row = mysqli_fetch_array($result);
      echo json_encode($row);
      //echo json_encode($_POST["product_ID"]);
-     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>';
+     //$x = '<label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>';
      //echo $x;
 }

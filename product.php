@@ -46,7 +46,8 @@ echo '</pre>';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
     <?php
 
     include('include\importcss.php');
@@ -69,8 +70,7 @@ echo '</pre>';
     <div class="container-fluid py-3">
         <div class="text-right">
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     เพิ่มสินค้าใหม่
                 </a>
                 <!--
@@ -91,8 +91,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2 ">ชื่อสินค้า</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="nameproduct" name="nameproduct"
-                                    placeholder="ชื่อสินค้า" required>
+                                <input type="text" class="form-control" id="nameproduct" name="nameproduct" placeholder="ชื่อสินค้า" required>
                             </div>
                         </div>
 
@@ -105,7 +104,7 @@ echo '</pre>';
                                 $selectTypeproduct = "SELECT * FROM producttype";
                                 $resultTypeproduct = mysqli_query($conn, $selectTypeproduct);
                                 while ($row = mysqli_fetch_array($resultTypeproduct)) { ?>
-                                <option value="<?php echo $row["Type_ID"]; ?>"><?php echo $row["Type_Name"]; ?></option>
+                                    <option value="<?php echo $row["Type_ID"]; ?>"><?php echo $row["Type_Name"]; ?></option>
 
                                 <?php
                                 }
@@ -147,8 +146,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">ราคาสินค้า</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="price" name="price" min="1"
-                                    placeholder="ราคาสินค้า" max='9999999' required>
+                                <input type="number" class="form-control" id="price" name="price" min="1" placeholder="ราคาสินค้า" max='9999999' required>
                             </div>
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">บาท</label>
                         </div>
@@ -156,25 +154,22 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">จำนวนสินค้า</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="unit" step="1" name="unit" min="1"
-                                    max='99999' placeholder="จำนวนสินค้า" required>
+                                <input type="number" class="form-control" id="unit" step="1" name="unit" min="1" max='99999' placeholder="จำนวนสินค้า" required>
                             </div>
-                            <label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>
+                            <label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>
                         </div>
 
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="py-2">รายละเอียดสินค้า</label>
-                            <textarea class="form-control" id="detail" name="detail" rows="5"
-                                placeholder="รายละเอียดสินค้า" required></textarea>
+                            <textarea class="form-control" id="detail" name="detail" rows="5" placeholder="รายละเอียดสินค้า" required></textarea>
                         </div>
 
                         <div class="form-group row ">
 
                             <label class="col-sm-1 py-2">รูปสินค้า</label>
                             <div class="custom-file col-sm-5" data-callback=" PhotoChcallback">
-                                <input type="file" class="custom-file-input product-file" id="file"
-                                    aria-describedby="inputGroupFileAddon01" name="file">
+                                <input type="file" class="custom-file-input product-file" id="file" aria-describedby="inputGroupFileAddon01" name="file">
                                 <label class=" custom-file-label product-label" for="inputGroupFile01">เลือกไฟล์</label>
                             </div>
                         </div>
@@ -183,12 +178,10 @@ echo '</pre>';
                         </figure>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-toggle="collapse"
-                            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             Close
                         </button>
-                        <button type="submit" name="submitproduct" id="submitproduct" class="btn btn-primary"
-                            disabled>Save
+                        <button type="submit" name="submitproduct" id="submitproduct" class="btn btn-primary" disabled>Save
                             changes</button>
                     </div>
 
@@ -222,12 +215,10 @@ echo '</pre>';
 
             ?>
 
-            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" <div
-                class="form-group row">
+            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" <div class="form-group row">
                 <label for="inputPassword" class="col-2 col-form-label py-2 ">ค้นหาชื่อสินค้า</label>
                 <div class="col-7">
-                    <input type="text" class="form-control" id="txtKeyword" name="txtKeyword"
-                        placeholder="ค้นหาชื่อสินค้า" maxlength="50" value="<?php echo $strKeyword; ?>">
+                    <input type="text" class="form-control" id="txtKeyword" name="txtKeyword" placeholder="ค้นหาชื่อสินค้า" maxlength="50" value="<?php echo $strKeyword; ?>">
                 </div>
                 <div class="col-3">
                     <input class="btn btn-light" type="submit" value="Search">
@@ -251,14 +242,14 @@ echo '</pre>';
 
                 //echo 'ไม่พบสินค้า';
         ?>
-        <div class="col-7 text-center mx-auto ml-2">
-            <div class="alert alert-danger alert-dismissible fade show " role="alert">
-                !!!! ไม่พบสินค้าที่ค้นหาในระบบ
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
+                <div class="col-7 text-center mx-auto ml-2">
+                    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                        !!!! ไม่พบสินค้าที่ค้นหาในระบบ
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
 
 
         <?php
@@ -287,7 +278,8 @@ echo '</pre>';
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                         <tr>
-                            <th width="25%" class="text-center">ชื่อสินค้า</th>
+                            <th width="10%" class="text-center"></th>
+                            <th width="15%" class="text-center">ชื่อสินค้า</th>
                             <th width="15%" class="text-center">ประเภทสินค้า</th>
                             <th width="15%" class="text-center">ราคา</th>
                             <th width=" 15%" class="text-center">จำนวนคงเหลือ</th>
@@ -347,51 +339,48 @@ echo '</pre>';
 
                         while ($rowproduct = mysqli_fetch_array($resultproduct)) {
                         ?>
-                        <tr>
+                            <tr>
+                                <th width="12%" class="text-center"><img class="img-responsive" src="img\product\<?php echo $rowproduct["Product_Photo"] ?>" alt="<?php echo $rowproduct["Product_Photo"] ?>" width="120" height="80">
+                                </th>
 
-                            <th><?php echo $rowproduct["Product_Name"] ?></th>
-                            <td><?php echo $rowproduct["Type_Name"] ?></td>
-                            <td><?php echo $rowproduct["Product_Price"] ?></td>
-                            <td><?php echo $rowproduct["Product_Balance"] ?></td>
-                            <td>
+                                <th><?php echo $rowproduct["Product_Name"] ?></th>
+                                <td><?php echo $rowproduct["Type_Name"] ?></td>
+                                <td class="text-right"><?php echo $rowproduct["Product_Price"] ?></td>
+                                <td class="text-right"><?php echo $rowproduct["Product_Balance"] ?></td>
+                                <td>
 
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="รายละเอียด"
-                                        id="<?php echo $rowproduct["Product_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  view_dataproduct" />
+                                    <div class="mx-auto text-center">
+                                        <input type="button" name="edit" value="รายละเอียด" id="<?php echo $rowproduct["Product_ID"]; ?>" class="btn btn-info  btn-sm  view_dataproduct" />
 
-                                </div>
+                                    </div>
 
 
-                            </td>
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="แก้ไขข้อมูลสินค้า"
-                                        id="<?php echo $rowproduct["Product_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  edit_dataproduct" />
-                                    <div class="py-1"></div>
-                                    <a href="updatephoto.php?product_ID=<?php
+                                </td>
+                                <td>
+                                    <div class="mx-auto text-center">
+                                        <input type="button" name="edit" value="แก้ไขข้อมูลสินค้า" id="<?php echo $rowproduct["Product_ID"]; ?>" class="btn btn-info  btn-sm  edit_dataproduct" />
+                                        <div class="py-1"></div>
+                                        <a href="updatephoto.php?product_ID=<?php
                                                                             echo $rowproduct["Product_ID"];
-                                                                            ?>"
-                                        class="btn btn-info  btn-sm  edit_dataphoto">
-                                        เปลี่ยนรูปสินค้า
+                                                                            ?>" class="btn btn-info  btn-sm  edit_dataphoto">
+                                            เปลี่ยนรูปสินค้า
 
-                                    </a>
+                                        </a>
 
-                                </div>
+                                    </div>
 
 
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    <a href="php/delete.php?product_ID=<?php
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <a href="php/delete.php?product_ID=<?php
                                                                             echo $rowproduct["Product_ID"];
                                                                             ?>" style="color:#000000" ">
                                                             <i class=" fas fa-trash-alt"></i></a>
-                                </div>
+                                    </div>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
                         <?php
                         }
@@ -462,8 +451,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2 ">ชื่อสินค้า</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="nameproduct2" name="nameproduct2"
-                                    placeholder="ชื่อสินค้า" required>
+                                <input type="text" class="form-control" id="nameproduct2" name="nameproduct2" placeholder="ชื่อสินค้า" required>
                             </div>
                         </div>
 
@@ -475,8 +463,8 @@ echo '</pre>';
                                 $selectwarranty = "SELECT * FROM producttype";
                                 $resultwarranty = mysqli_query($conn, $selectwarranty);
                                 while ($rowwarranty = mysqli_fetch_array($resultwarranty)) { ?>
-                                <option value="<?php echo $rowwarranty["Type_ID"]; ?>">
-                                    <?php echo $rowwarranty["Type_Name"]; ?></option>
+                                    <option value="<?php echo $rowwarranty["Type_ID"]; ?>">
+                                        <?php echo $rowwarranty["Type_Name"]; ?></option>
                                 <?php
                                 }
                                 ?>
@@ -559,8 +547,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">ราคาสินค้า</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="price2" name="price2"
-                                    placeholder="ราคาสินค้า" min="1" max="9999999" required>
+                                <input type="number" class="form-control" id="price2" name="price2" placeholder="ราคาสินค้า" min="1" max="9999999" required>
                             </div>
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">บาท</label>
                         </div>
@@ -568,17 +555,15 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2">จำนวนสินค้า</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="unit2" name="unit2"
-                                    placeholder="จำนวนสินค้า" required min="1" max="9999">
+                                <input type="number" class="form-control" id="unit2" name="unit2" placeholder="จำนวนสินค้า" required min="1" max="9999">
                             </div>
-                            <label for="inputPassword" class="col-sm-2 col-form-label py-2">เครื่อง</label>
+                            <label for="inputPassword" class="col-sm-2 col-form-label py-2">ชิ้น</label>
                         </div>
 
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="py-2">รายละเอียดสินค้า</label>
-                            <textarea class="form-control" id="detail2" name="detail2" rows="5"
-                                placeholder="รายละเอียดสินค้า" required></textarea>
+                            <textarea class="form-control" id="detail2" name="detail2" rows="5" placeholder="รายละเอียดสินค้า" required></textarea>
                         </div>
 
 
@@ -586,8 +571,7 @@ echo '</pre>';
                         <input type="hidden" name="idproduct" id="idproduct" />
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" name="submitproduct" id="submitproduct"
-                                class="btn btn-primary">บันทึก</button>
+                            <button type="submit" name="submitproduct" id="submitproduct" class="btn btn-primary">บันทึก</button>
                         </div>
                 </form>
 

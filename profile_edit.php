@@ -8,7 +8,8 @@
     <?php
     include('include/importcss.php'); // เรียกใช่ไฟล์ include css
     ?>
-    <title>Profile</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
     <?php
     require_once('php/connect.php');
     include('include/navber.php');

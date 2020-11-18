@@ -36,78 +36,80 @@ echo '</pre>';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="include/CSS/Csscart.css?v=<?php echo filemtime('include/CSS/styles.css'); ?>" type=" text/css">
-    <?php
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
+    <icon>
+        <link rel="stylesheet" href="include/CSS/Csscart.css?v=<?php echo filemtime('include/CSS/styles.css'); ?>" type=" text/css">
+        <?php
 
 
-    include('include\importcss.php');
-    include('include\navber.php');
+        include('include\importcss.php');
+        include('include\navber.php');
 
-    // echo '<pre>';
-    //print_r($_SESSION);
-    //echo '</pre>';
+        // echo '<pre>';
+        //print_r($_SESSION);
+        //echo '</pre>';
 
 
 
-    if (isset($_GET["action"])) {
-        if ($_GET["action"] == "delete") {
-            foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-                if ($values["item_id"] == $_GET["id"]) {
-                    unset($_SESSION["shopping_cart"][$keys]);
-                    echo '<script>alert("Item Removed")</script>';
-                    echo '<script>window.location="cart.php"</script>';
-                }
-            }
-        }
-    }
-    if (isset($_GET["act"])) {
-
-        if (isset($_POST["updatecart"])) {
-            if ($_POST["updatecart"] == "updatecart") {
-                //echo '1234';
-                $id = 0;
-                $dataquantity = 0;
-
-                // name="quantity<?php echo $quantity++ 
-
+        if (isset($_GET["action"])) {
+            if ($_GET["action"] == "delete") {
                 foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-                    if ($_SESSION["shopping_cart"][$keys]['item_id'] == $_POST["product_id" . $id++]) {
-                        $_SESSION['shopping_cart'][$keys]['item_quantity'] = $_POST['quantity' . $dataquantity++];
+                    if ($values["item_id"] == $_GET["id"]) {
+                        unset($_SESSION["shopping_cart"][$keys]);
+                        echo '<script>alert("Item Removed")</script>';
+                        echo '<script>window.location="cart.php"</script>';
                     }
                 }
             }
         }
-        if (isset($_POST["deletecart"])) {
+        if (isset($_GET["act"])) {
 
-            if ($_POST["deletecart"] = 'deletecart') {
+            if (isset($_POST["updatecart"])) {
+                if ($_POST["updatecart"] == "updatecart") {
+                    //echo '1234';
+                    $id = 0;
+                    $dataquantity = 0;
 
-                $pc = 0;
-                foreach ($_SESSION["shopping_cart"] as $keys => $values) {
-                    unset($_SESSION["shopping_cart"][$keys]);
+                    // name="quantity<?php echo $quantity++ 
 
-                    echo '<script>window.location="shopproduct.php"</script>';
+                    foreach ($_SESSION["shopping_cart"] as $keys => $values) {
+                        if ($_SESSION["shopping_cart"][$keys]['item_id'] == $_POST["product_id" . $id++]) {
+                            $_SESSION['shopping_cart'][$keys]['item_quantity'] = $_POST['quantity' . $dataquantity++];
+                        }
+                    }
+                }
+            }
+            if (isset($_POST["deletecart"])) {
+
+                if ($_POST["deletecart"] = 'deletecart') {
+
+                    $pc = 0;
+                    foreach ($_SESSION["shopping_cart"] as $keys => $values) {
+                        unset($_SESSION["shopping_cart"][$keys]);
+
+                        echo '<script>window.location="shopproduct.php"</script>';
+                    }
                 }
             }
         }
-    }
 
 
-    ?>
-
-
-
-    <?php
-    $id = 0; //1
-    $name = 0; //2
-    $price = 0; //3                                        
-    $quantity = 0; //4
-    $photo = 0; //5
-    $Balance = 0; //6
+        ?>
 
 
 
-    ?>
+        <?php
+        $id = 0; //1
+        $name = 0; //2
+        $price = 0; //3                                        
+        $quantity = 0; //4
+        $photo = 0; //5
+        $Balance = 0; //6
+
+
+
+        ?>
 </head>
 
 

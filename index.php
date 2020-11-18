@@ -13,7 +13,9 @@ include("php/connectns.php");
     <link rel="stylesheet" href="node_modules/font-awesome5/css/fontawesome-all.css">
     <link rel="stylesheet" href="include/CSS/styles.css?v=<?php echo filemtime('include/CSS/styles.css'); ?>"
         type=" text/css">
-    <title>HOME</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
+
 </head>
 
 <body>

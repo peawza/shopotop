@@ -14,12 +14,14 @@ if (isset($_POST['submitUpdateUser']) && isset($_SESSION['ID'])) {
 
     if ($result) {
         //echo 'แก้ไข้ข้อมูลสำเร็จ';
-        echo "<script> alert('แก้ไขข้อมูลสำเร็จ'); </script>";
+
         header('Refresh:0; url=../profile.php');
+        echo "<script> alert('แก้ไขข้อมูลสำเร็จ'); </script>";
     } else {
         //echo 'ไม่สำเร็จ';
-        echo "<script> alert('แก้ไขข้อมูลไม่สำเร็จ'); </script>";
+
         header('Refresh:0; url=../profile.php');
+        echo "<script> alert('แก้ไขข้อมูลไม่สำเร็จ'); </script>";
     }
 } else {
     header('location:../index.php');

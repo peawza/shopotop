@@ -13,7 +13,8 @@ session_start();
 
     <link rel="stylesheet" href="include/CSS/cssLogin.css">
 -->
-    <title>Document</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
 
     <?php
     include('include/importcss.php');
@@ -39,8 +40,7 @@ session_start();
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="far fa-user"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Username" maxlength="30"
-                                            id="username" name="username" required>
+                                        <input type="text" class="form-control" placeholder="Username" maxlength="30" id="username" name="username" required>
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -49,8 +49,7 @@ session_start();
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-key"></i></div>
                                         </div>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            placeholder="Password" maxlength="20" required>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" maxlength="20" required>
                                     </div>
                                 </div>
 
@@ -72,8 +71,7 @@ session_start();
 
 
                                 <div class="col-auto">
-                                    <button type="submit " name="submitlogin" id="submitlogin"
-                                        class="btn btn-primary mb-2">ล็อคอิน</button>
+                                    <button type="submit " name="submitlogin" id="submitlogin" class="btn btn-primary mb-2">ล็อคอิน</button>
                                 </div>
                             </div>
                         </form>

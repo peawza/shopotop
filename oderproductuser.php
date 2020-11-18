@@ -34,7 +34,8 @@ echo '</pre>';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
     <?php
 
     include('include\importcss.php');
@@ -65,12 +66,10 @@ echo '</pre>';
 
             ?>
 
-            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" <div
-                class="form-group row">
+            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" <div class="form-group row">
                 <label for="inputPassword" class="col-2 col-form-label py-2 ">ค้นหาชื่อสินค้า</label>
                 <div class="col-7">
-                    <input type="text" class="form-control" id="txtKeyword" name="txtKeyword"
-                        placeholder="ค้นหาชื่อสินค้า" maxlength="50" value="<?php echo $strKeyword; ?>">
+                    <input type="text" class="form-control" id="txtKeyword" name="txtKeyword" placeholder="ค้นหาชื่อสินค้า" maxlength="50" value="<?php echo $strKeyword; ?>">
                 </div>
                 <div class="col-3">
                     <input class="btn btn-light" type="submit" value="Search">
@@ -103,14 +102,14 @@ echo '</pre>';
 
                 //echo 'ไม่พบสินค้า';
         ?>
-        <div class="col-7 text-center mx-auto ml-2">
-            <div class="alert alert-danger alert-dismissible fade show " role="alert">
-                !!!! ไม่พบสินค้าที่ค้นหาในระบบ
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
+                <div class="col-7 text-center mx-auto ml-2">
+                    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                        !!!! ไม่พบสินค้าที่ค้นหาในระบบ
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
 
 
         <?php
@@ -161,194 +160,174 @@ echo '</pre>';
 
                         while ($rowordersales = mysqli_fetch_array($resultordersales)) {
                         ?>
-                        <tr>
-                            <th><?php
+                            <tr>
+                                <th><?php
                                     $code = sprintf('O-%04d', $rowordersales['Ordersales_ID']);
                                     echo $code ?>
-                            </th>
-                            <th><?php echo $rowordersales["User_Firstname"] . ' ' . $rowordersales['User_Lastname'] ?>
-                            </th>
-                            <td><?php echo $rowordersales["Ordersales_address"]  ?></td>
-                            <td><?php echo $rowordersales["Delivery_Name"] ?></td>
+                                </th>
+                                <th><?php echo $rowordersales["User_Firstname"] . ' ' . $rowordersales['User_Lastname'] ?>
+                                </th>
+                                <td><?php echo $rowordersales["Ordersales_address"]  ?></td>
+                                <td><?php echo $rowordersales["Delivery_Name"] ?></td>
 
-                            <?php
+                                <?php
                                 $originalDate = $rowordersales["Ordersales_Day"];
                                 $newDate = date("d / m / Y", strtotime($originalDate));
                                 ?>
-                            <td><?php echo $rowordersales["Ordersales_Totalprice"] ?></td>
-                            <td><?php echo  $newDate ?></td>
-                            <?php
+                                <td><?php echo $rowordersales["Ordersales_Totalprice"] ?></td>
+                                <td><?php echo  $newDate ?></td>
+                                <?php
                                 if ($rowordersales["Ordersales_Status"] == 'รอการชำระเงิน') {
                                 ?>
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name=" "
-                                        value="<?php echo $rowordersales["Ordersales_Status"]; ?>"
-                                        class="btn btn-danger  btn-sm  " />
-                                </div>
-                            </td>
+                                    <td>
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name=" " value="<?php echo $rowordersales["Ordersales_Status"]; ?>" class="btn btn-danger  btn-sm  " />
+                                        </div>
+                                    </td>
 
 
-                            <td>
+                                    <td>
 
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="รายละเอียด"
-                                        id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  view_dataordersales" />
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name="edit" value="รายละเอียด" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  view_dataordersales" />
 
-                                </div>
+                                        </div>
 
 
-                            </td>
+                                    </td>
 
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="ชำระเงิน"
-                                        id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  edit_dataordersalesTransfermoney" />
-                                    <div class="py-1"></div>
-                                </div>
-                            </td>
+                                    <td>
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name="edit" value="ชำระเงิน" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  edit_dataordersalesTransfermoney" />
+                                            <div class="py-1"></div>
+                                        </div>
+                                    </td>
 
-                            <td>
-                                <div class="text-center">
-                                    <a href="php/delete.php?Ordersalesuser_ID=<?php
+                                    <td>
+                                        <div class="text-center">
+                                            <a href="php/delete.php?Ordersalesuser_ID=<?php
                                                                                         echo $rowordersales["Ordersales_ID"];
                                                                                         ?>" style="color:#000000" ">
                                                             <i class=" fas fa-trash-alt"></i></a>
-                                </div>
+                                        </div>
 
-                            </td>
-                            <?php
+                                    </td>
+                                <?php
                                 }
                                 if ($rowordersales["Ordersales_Status"] == 'รอยืนยันการชำระเงิน') {
                                 ?>
 
 
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name=" "
-                                        value="<?php echo $rowordersales["Ordersales_Status"]; ?>"
-                                        class="btn btn-warning  btn-sm  " />
-                                </div>
-                            </td>
+                                    <td>
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name=" " value="<?php echo $rowordersales["Ordersales_Status"]; ?>" class="btn btn-warning  btn-sm  " />
+                                        </div>
+                                    </td>
 
 
 
-                            <td>
+                                    <td>
 
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="รายละเอียด"
-                                        id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  view_dataordersales" />
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name="edit" value="รายละเอียด" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  view_dataordersales" />
 
-                                </div>
+                                        </div>
 
 
-                            </td>
+                                    </td>
 
-                            <td>
-                                <div class="mx-auto text-center">
+                                    <td>
+                                        <div class="mx-auto text-center">
 
-                                    <div class="mx-auto text-center">
-                                        <input type="button" name="edit" value="แก้ไขชำระเงิน"
-                                            id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                            class="btn btn-info  btn-sm  edit_dataordersalesTransfermoney" />
-                                        <div class="py-1"></div>
-                                    </div>
+                                            <div class="mx-auto text-center">
+                                                <input type="button" name="edit" value="แก้ไขชำระเงิน" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  edit_dataordersalesTransfermoney" />
+                                                <div class="py-1"></div>
+                                            </div>
 
 
 
-                                </div>
+                                        </div>
 
 
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    <a href="php/delete.php?Ordersalesuser_ID=<?php
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <a href="php/delete.php?Ordersalesuser_ID=<?php
                                                                                         echo $rowordersales["Ordersales_ID"];
                                                                                         ?>" style="color:#000000" ">
                                                             <i class=" fas fa-trash-alt"></i></a>
-                                </div>
+                                        </div>
 
-                            </td>
-                            <?php
+                                    </td>
+                                <?php
                                 }
 
                                 if ($rowordersales["Ordersales_Status"] == 'รอการจัดส่งสินค้า') {
                                 ?>
 
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name=" "
-                                        value="<?php echo $rowordersales["Ordersales_Status"]; ?>"
-                                        class="btn btn-success  btn-sm  " />
-                                </div>
-                            </td>
+                                    <td>
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name=" " value="<?php echo $rowordersales["Ordersales_Status"]; ?>" class="btn btn-success  btn-sm  " />
+                                        </div>
+                                    </td>
 
 
-                            <td>
+                                    <td>
 
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="รายละเอียด"
-                                        id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  view_dataordersales" />
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name="edit" value="รายละเอียด" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  view_dataordersales" />
 
-                                </div>
+                                        </div>
 
 
-                            </td>
+                                    </td>
 
-                            <td colspan="2">
+                                    <td colspan="2">
 
 
 
 
 
-                            </td>
-                            <?php
+                                    </td>
+                                <?php
                                 }
                                 ?>
 
-                            <?php
+                                <?php
                                 if ($rowordersales["Ordersales_Status"] == 'กำลังจัดส่งสินค้า') {
                                 ?>
 
-                            <td>
-                                <div class="mx-auto text-center">
-                                    <input type="button" name=" "
-                                        value="<?php echo $rowordersales["Ordersales_Status"]; ?>"
-                                        class="btn btn-primary  btn-sm  " />
-                                </div>
-                            </td>
+                                    <td>
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name=" " value="<?php echo $rowordersales["Ordersales_Status"]; ?>" class="btn btn-primary  btn-sm  " />
+                                        </div>
+                                    </td>
 
 
-                            <td>
+                                    <td>
 
-                                <div class="mx-auto text-center">
-                                    <input type="button" name="edit" value="รายละเอียด"
-                                        id="<?php echo $rowordersales["Ordersales_ID"]; ?>"
-                                        class="btn btn-info  btn-sm  view_dataordersales" />
+                                        <div class="mx-auto text-center">
+                                            <input type="button" name="edit" value="รายละเอียด" id="<?php echo $rowordersales["Ordersales_ID"]; ?>" class="btn btn-info  btn-sm  view_dataordersales" />
 
-                                </div>
+                                        </div>
 
 
-                            </td>
+                                    </td>
 
-                            <td colspan="2">
-                                <div class="mr-auto text-justify">
+                                    <td colspan="2">
+                                        <div class="mr-auto text-justify">
 
-                                    <p class="font-weight-bold">หมายเลขพัสดุ :
-                                        <?php echo $rowordersales['ordersales_Packagenumber'] ?></p>
-                                </div>
+                                            <p class="font-weight-bold">หมายเลขพัสดุ :
+                                                <?php echo $rowordersales['ordersales_Packagenumber'] ?></p>
+                                        </div>
 
 
-                            </td>
+                                    </td>
 
 
 
 
-                            <?php
+                                <?php
                                 }
                                 ?>
 
@@ -360,7 +339,7 @@ echo '</pre>';
 
 
 
-                        </tr>
+                            </tr>
 
                         <?php
                         }
@@ -430,8 +409,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2 ">ยอดเงินที่ต้องชำระ</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="mony" name="mony" placeholder="จำนวนเงิน"
-                                    disabled>
+                                <input type="text" class="form-control" id="mony" name="mony" placeholder="จำนวนเงิน" disabled>
                             </div>
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2 ">บาท</label>
                         </div>
@@ -439,8 +417,7 @@ echo '</pre>';
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label py-2 ">จำนวนเงินที่โอนมา</label>
                             <div class="col-sm-5">
-                                <input type="number" class="form-control" id="inputmony" name="inputmony"
-                                    placeholder="จำนวนเงิน" min="0" required>
+                                <input type="number" class="form-control" id="inputmony" name="inputmony" placeholder="จำนวนเงิน" min="0" required>
                             </div>
                             <label for=" inputPassword" class="col-sm-2 col-form-label py-2 ">บาท</label>
                         </div>
@@ -451,8 +428,7 @@ echo '</pre>';
 
 
                     <div class="custom-file col-sm-5" data-callback=" PhotoChcallback">
-                        <input type="file" class="custom-file-input product-file" id="file"
-                            aria-describedby="inputGroupFileAddon01" name="file">
+                        <input type="file" class="custom-file-input product-file" id="file" aria-describedby="inputGroupFileAddon01" name="file">
                         <label class=" custom-file-label product-label" for="inputGroupFile01">เลือกไฟล์</label>
                     </div>
 
@@ -462,37 +438,37 @@ echo '</pre>';
 
 
                     <script>
-                    $(".product-file").on("change", function() {
-                        //เพิ่มรูปสินค้า ตลาส product-file-input
-                        /* console.log(
-                          $(this)
-                            .val()
-                            .split("\\")
-                            .pop()
-                        );*/
+                        $(".product-file").on("change", function() {
+                            //เพิ่มรูปสินค้า ตลาส product-file-input
+                            /* console.log(
+                              $(this)
+                                .val()
+                                .split("\\")
+                                .pop()
+                            );*/
 
-                        var filename = $(this)
-                            .val()
-                            .split("\\")
-                            .pop();
-                        $(this)
-                            .siblings(".product-label") /// แก้ตรงนี้
-                            .html(filename);
+                            var filename = $(this)
+                                .val()
+                                .split("\\")
+                                .pop();
+                            $(this)
+                                .siblings(".product-label") /// แก้ตรงนี้
+                                .html(filename);
 
-                        if (this.files[0]) {
-                            var reader = new FileReader();
-                            $(".figure").addClass("d-block");
-                            reader.onload = function(e) {
-                                //console.log(reader);
-                                $("#imgproduct")
-                                    .attr("src", e.target.result)
-                                    .width(800)
-                                    .height(600);
-                            };
-                            reader.readAsDataURL(this.files[0]);
-                            $("#submitordersalesTransfermoneyuser").removeAttr("disabled");
-                        }
-                    });
+                            if (this.files[0]) {
+                                var reader = new FileReader();
+                                $(".figure").addClass("d-block");
+                                reader.onload = function(e) {
+                                    //console.log(reader);
+                                    $("#imgproduct")
+                                        .attr("src", e.target.result)
+                                        .width(800)
+                                        .height(600);
+                                };
+                                reader.readAsDataURL(this.files[0]);
+                                $("#submitordersalesTransfermoneyuser").removeAttr("disabled");
+                            }
+                        });
                     </script>
 
 
@@ -508,8 +484,7 @@ echo '</pre>';
                     <input type="hidden" name="idorder2" id="idorder2" value="5000" />
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="submitordersalesTransfermoneyuser"
-                            id="submitordersalesTransfermoneyuser" class="btn btn-primary" disabled>บันทึก</button>
+                        <button type="submit" name="submitordersalesTransfermoneyuser" id="submitordersalesTransfermoneyuser" class="btn btn-primary" disabled>บันทึก</button>
                     </div>
                 </form>
 
@@ -538,35 +513,35 @@ echo '</pre>';
 
 
 <script>
-$(".updateimgproduct-input").on("change", function() {
-    // เปลี่ยนรูปโปรไฟล์ใหม่ custom-file-input
-    /* console.log(
-      $(this)
-        .val()
-        .split("\\")
-        .pop()
-    );*/
+    $(".updateimgproduct-input").on("change", function() {
+        // เปลี่ยนรูปโปรไฟล์ใหม่ custom-file-input
+        /* console.log(
+          $(this)
+            .val()
+            .split("\\")
+            .pop()
+        );*/
 
-    var filename = $(this)
-        .val()
-        .split("\\")
-        .pop();
-    $(this)
-        .siblings(".custom-file-label") /// แก้ตรงนี้
-        .html(filename);
+        var filename = $(this)
+            .val()
+            .split("\\")
+            .pop();
+        $(this)
+            .siblings(".custom-file-label") /// แก้ตรงนี้
+            .html(filename);
 
-    if (this.files[0]) {
-        var reader = new FileReader();
-        $(".figure").addClass("d-block");
-        reader.onload = function(e) {
-            //console.log(reader);
-            $("#imgprofile")
-                .attr("src", e.target.result)
-                .width(800)
-                .height(600);
-        };
-        reader.readAsDataURL(this.files[0]);
-        $("#submitphotoproduct").removeAttr("disabled");
-    }
-});
+        if (this.files[0]) {
+            var reader = new FileReader();
+            $(".figure").addClass("d-block");
+            reader.onload = function(e) {
+                //console.log(reader);
+                $("#imgprofile")
+                    .attr("src", e.target.result)
+                    .width(800)
+                    .height(600);
+            };
+            reader.readAsDataURL(this.files[0]);
+            $("#submitphotoproduct").removeAttr("disabled");
+        }
+    });
 </script>

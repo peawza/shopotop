@@ -169,7 +169,7 @@ if (isset($_POST["ordersalesid"])) {
 
                <div class="col-6 col-sm-6 col-md-6 py-1">
                     
-               <h6>  <strong>' . $rowodersales["ordersalesDetail_unit"] . ' <span class="text-muted"> เครื่อง</span></strong></h6>
+               <h6>  <strong>' . $rowodersales["ordersalesDetail_unit"] . ' <span class="text-muted"> ชิ้น</span></strong></h6>
                </div>
                <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
                     <h6>รวม  <strong>' . $rowodersales["ordersalesdetail_ price"] . ' <span class="text-muted">

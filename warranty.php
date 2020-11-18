@@ -8,7 +8,8 @@
     //echo "111111111111111111111111";
     include('include/importcss.php'); // เรียกใช่ไฟล์ include css    
     ?>
-    <title>HOME</title>
+    <link rel="icon" href="img/index/icon.png">
+    <title>Otop Tailand</title>
 </head>
 
 <?php
@@ -59,36 +60,34 @@ include('include/navber.php');
                                 $sql = "SELECT * FROM `warranty` ORDER BY `warranty`.`Warranty_ID` ASC";
                                 $query = mysqli_query($conn, $sql);
                                 while ($row = mysqli_fetch_array($query)) { ?>
-                                <tr>
-                                    <div class="">
-                                        <td class="text-sm-right px-5"><?php echo $row["Warranty_ID"]; ?></td>
-                                    </div>
-
-                                    <td class="text-sm-left px-5"><?php echo $row["Warranty_Name"]; ?></td>
-                                    <td class="text-sm-left px-5"><?php echo $row["Warranty_Day"]; ?></td>
-
-                                    <td>
-                                        <div class="container">
-                                            <input type="button" name="edit" value="แก้ไขการรับประกัน"
-                                                id="<?php echo $row["Warranty_ID"]; ?>"
-                                                class="btn btn-info  btn-sm  edit_data-Warranty" />
-
+                                    <tr>
+                                        <div class="">
+                                            <td class="text-sm-right px-5"><?php echo $row["Warranty_ID"]; ?></td>
                                         </div>
 
+                                        <td class="text-sm-left px-5"><?php echo $row["Warranty_Name"]; ?></td>
+                                        <td class="text-sm-left px-5"><?php echo $row["Warranty_Day"]; ?></td>
 
-                                    </td>
-                                    <td>
-                                        <div class="text-center">
-                                            <a href="php/delete.php?Warranty_ID=<?php
+                                        <td>
+                                            <div class="container">
+                                                <input type="button" name="edit" value="แก้ไขการรับประกัน" id="<?php echo $row["Warranty_ID"]; ?>" class="btn btn-info  btn-sm  edit_data-Warranty" />
+
+                                            </div>
+
+
+                                        </td>
+                                        <td>
+                                            <div class="text-center">
+                                                <a href="php/delete.php?Warranty_ID=<?php
                                                                                     echo $row["Warranty_ID"];
                                                                                     ?>" style="color:#000000" ">
                                             <i class=" fas fa-trash-alt"></i></a>
-                                        </div>
+                                            </div>
 
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                    </tr>
                                 <?php
                                 }
                                 ?>
@@ -117,21 +116,18 @@ include('include/navber.php');
 
 
                         <label for="exampleFormControlInput1">ชื่อประเภทการรับกันสินค้า</label>
-                        <input type="text" class="form-control mb-2 my-2 " id="namewarranty" name="namewarranty"
-                            placeholder="ประเภทการรับประกันสินค้า" maxlength="50" required>
+                        <input type="text" class="form-control mb-2 my-2 " id="namewarranty" name="namewarranty" placeholder="ประเภทการรับประกันสินค้า" maxlength="50" required>
 
                         <div class="form-group row py-2">
                             <label for="exampleFormControlInput1" class="col-6 py-4">จำนวนวันรับประกัน</label>
-                            <input type="number" class="form-control mb-2 my-2 col-4" id="daywarranty"
-                                name="daywarranty" placeholder="จำนวนวัน" maxlength="4" min="1" required>
+                            <input type="number" class="form-control mb-2 my-2 col-4" id="daywarranty" name="daywarranty" placeholder="จำนวนวัน" maxlength="4" min="1" required>
                             <label for="exampleFormControlInput1" class="col-2 py-4">วัน</label>
                         </div>
 
 
 
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg  float-right  mb-2  mx-3 my-1 px-5 "
-                        id="addtype" name="insertwarranty">บันทึกประเภทการรับกันสินค้า</button>
+                    <button type="submit" class="btn btn-success btn-lg  float-right  mb-2  mx-3 my-1 px-5 " id="addtype" name="insertwarranty">บันทึกประเภทการรับกันสินค้า</button>
 
                 </form>
 
@@ -189,8 +185,7 @@ include('include/navber.php');
                         <input type="hidden" name="Warrantyid" id="Warrantyid" />
                         <div class="py-3"> </div>
                         <div>
-                            <input type="submit" name="updatewarranty" id="updatewarranty" value="อัพเดท"
-                                class="btn btn-success " />
+                            <input type="submit" name="updatewarranty" id="updatewarranty" value="อัพเดท" class="btn btn-success " />
                         </div>
                         <div class="py-3"></div>
                     </form>
